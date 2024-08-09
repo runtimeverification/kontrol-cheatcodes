@@ -19,7 +19,9 @@ interface KontrolCheatsBase {
     function expectCreate2(address,uint256,bytes calldata) external;
     // Makes the storage of the given address completely symbolic.
     function symbolicStorage(address) external;
-    // From now on, whenever a call is made to callee with calldata data, instead call calledContract with the same calldata. 
+    // Copies the storage of one account into another
+    function copyStorage(address,address) external;
+    // From now on, whenever a call is made to callee with calldata data, instead call calledContract with the same calldata.
     function mockFunction(address callee, address calledContract, bytes calldata data) external;
     // Adds an address to the whitelist.
     function allowCallsToAddress(address) external;
