@@ -32,11 +32,11 @@ interface KontrolCheatsBase {
     // Sets the current <gas> cell to the supplied amount.
     function setGas(uint256) external;
     // Returns a symbolic unsigned integer
-    function freshUInt(uint8) external returns (uint256);
+    function freshUInt(uint8) external view returns (uint256);
     // Returns a symbolic boolean value
-    function freshBool() external returns (uint256);
+    function freshBool() external view returns (uint256);
     // Returns a symbolic byte array
-    function freshBytes(uint256) external returns (bytes memory);
+    function freshBytes(uint256) external view returns (bytes memory);
     // Returns a symbolic address
-    function freshAddress() external returns (address);
+    function freshAddress() external view returns (address);
 }
