@@ -8,8 +8,14 @@ jobs:
 
   cut-release:
     name: 'Cut Release'
-    runs-on: [self-hosted, linux, flyweight]
+    runs-on: ubuntu-latest
     steps:
+      - name: 'Install expect'
+        run: sudo apt-get update && sudo apt-get install -y expect
+      
+      - name: 'Run Expect Script'
+        run: expect scripts/soldeer_publish.sh ${{ vars.SOLDEER_EMAIL }} ${{ secrets.SOLDEER_PASSWORD }}
+
       - name: 'Check out code'
         uses: actions/checkout@v3
         with:
@@ -23,3 +29,11 @@ jobs:
           set -x
           short_sha=$(git rev-parse --short ${{ github.sha }})
           gh release create ${short_sha} --target ${{ github.sha }}
+
+      - name: Install Foundry
+        uses: foundry-rs/foundry-toolchain@v1
+
+      - name: 'Build'
+        run: cargo install soldeer
+
+      - name: 'Run tests'
