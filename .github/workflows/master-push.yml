@@ -18,9 +18,11 @@ jobs:
 
       - name: 'Checkout Code'
         uses: actions/checkout@v4
-        
+
       - name: 'Run Expect Script'
-        run: expect scripts/soldeer_publish.expect ${{ vars.SOLDEER_EMAIL }} ${{ secrets.SOLDEER_PASSWORD }}
+        shell: bash
+        run: |
+          script -q -c "expect scripts/soldeer_publish.expect ${{ vars.SOLDEER_EMAIL }} ${{ secrets.SOLDEER_PASSWORD }}" /dev/null
 
       - name: 'Check out code'
         uses: actions/checkout@v3
@@ -30,7 +32,7 @@ jobs:
 
       - name: 'Create release'
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set -x
           short_sha=$(git rev-parse --short ${{ github.sha }})
