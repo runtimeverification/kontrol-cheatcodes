@@ -22,7 +22,7 @@ jobs:
       - name: 'Run Expect Script'
         shell: bash
         run: |
-          script -q -c "expect scripts/soldeer_publish.expect ${{ vars.SOLDEER_EMAIL }} ${{ secrets.SOLDEER_PASSWORD }}" /dev/null
+          script -q -c "expect scripts/soldeer_publish.expect ${{ vars.SOLDEER_EMAIL }} ${{ secrets.SOLDEER_PASSWORD }} ${{ github.event.push.head.sha }}" /dev/null
 
       - name: 'Check out code'
         uses: actions/checkout@v3
