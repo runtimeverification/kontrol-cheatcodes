@@ -16,6 +16,9 @@ jobs:
       - name: Install Foundry
         uses: foundry-rs/foundry-toolchain@v1.2.0
 
+      - name: 'Checkout Code'
+        uses: actions/checkout@v4
+        
       - name: 'Run Expect Script'
         run: expect scripts/soldeer_publish.expect ${{ vars.SOLDEER_EMAIL }} ${{ secrets.SOLDEER_PASSWORD }}
 
