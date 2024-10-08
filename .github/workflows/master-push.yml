@@ -17,7 +17,7 @@ jobs:
         uses: foundry-rs/foundry-toolchain@v1.2.0
 
       - name: 'Run Expect Script'
-        run: expect scripts/soldeer_publish.sh ${{ vars.SOLDEER_EMAIL }} ${{ secrets.SOLDEER_PASSWORD }}
+        run: expect scripts/soldeer_publish.expect ${{ vars.SOLDEER_EMAIL }} ${{ secrets.SOLDEER_PASSWORD }}
 
       - name: 'Check out code'
         uses: actions/checkout@v3
