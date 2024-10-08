@@ -29,11 +29,3 @@ jobs:
           set -x
           short_sha=$(git rev-parse --short ${{ github.sha }})
           gh release create ${short_sha} --target ${{ github.sha }}
-
-      - name: Install Foundry
-        uses: foundry-rs/foundry-toolchain@v1
-
-      - name: 'Build'
-        run: cargo install soldeer
-
-      - name: 'Run tests'
