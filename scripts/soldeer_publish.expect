@@ -48,7 +48,7 @@ expect {
 expect eof
 
 # Command to push after login
-set push_command "forge soldeer push"
+set push_command "forge soldeer push kontrol-cheatcodes~[lindex $argv 2]"
 
 # Start the push process
 spawn bash -c "$push_command"
