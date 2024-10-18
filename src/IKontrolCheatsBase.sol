@@ -30,7 +30,7 @@ interface KontrolCheatsBase {
     // Returns a symbolic unsigned integer
     function freshUInt(uint8) external view returns (uint256);
     // Returns a symbolic boolean value
-    function freshBool() external view returns (uint256);
+    function freshBool() external view returns (bool);
     // Returns a symbolic byte array
     function freshBytes(uint256) external view returns (bytes memory);
     // Returns a symbolic address
