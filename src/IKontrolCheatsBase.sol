@@ -35,4 +35,6 @@ interface KontrolCheatsBase {
     function freshBytes(uint256) external view returns (bytes memory);
     // Returns a symbolic address
     function freshAddress() external view returns (address);
+    // Forgets a branching condition
+    function forgetBranch(uint256,uint8,uint256) external;
 }
