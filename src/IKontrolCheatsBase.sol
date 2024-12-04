@@ -3,6 +3,7 @@ pragma solidity >=0.6.2 <0.9.0;
 pragma experimental ABIEncoderV2;
 
 interface KontrolCheatsBase {
+    enum ComparisonOperator { Equal, NotEqual, LessThanOrEqual, LessThan, GreaterThanOrEqual, GreaterThan }
     // Expects a call using the CALL opcode to an address with the specified calldata.
     function expectRegularCall(address,bytes calldata) external;
     // Expects a call using the CALL opcode to an address with the specified msg.value and calldata.
@@ -35,4 +36,6 @@ interface KontrolCheatsBase {
     function freshBytes(uint256) external view returns (bytes memory);
     // Returns a symbolic address
     function freshAddress() external view returns (address);
+    // Removes a path constraint
+    function forgetBranch(uint256, ComparisonOperator, uint256) external;
 }
