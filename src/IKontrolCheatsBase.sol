@@ -20,6 +20,10 @@ interface KontrolCheatsBase {
     function expectCreate2(address,uint256,bytes calldata) external;
     // Makes the storage of the given address completely symbolic.
     function symbolicStorage(address) external;
+    // Makes the storage of the given address completely symbolic with specified K variable name.
+    function symbolicStorage(address, string calldata) external;
+    // Makes the storage of the given address completely symbolic with specified K variable name.
+    function setArbitraryStorage(address, string calldata) external;
     // Adds an address to the whitelist.
     function allowCallsToAddress(address) external;
     // Adds an address and a storage slot to the whitelist.
@@ -30,12 +34,20 @@ interface KontrolCheatsBase {
     function setGas(uint256) external;
     // Returns a symbolic unsigned integer
     function freshUInt(uint8) external view returns (uint256);
+    // Returns a symbolic unsigned integer with specified K variable name.
+    function freshUInt(uint8, string calldata) external returns (uint256);
     // Returns a symbolic boolean value
     function freshBool() external view returns (bool);
+    // Returns a symbolic boolean value with specified K variable name.
+    function freshBool(string calldata) external returns (bool);
     // Returns a symbolic byte array
     function freshBytes(uint256) external view returns (bytes memory);
+    // Returns a symbolic byte array with specified K variable name.
+    function freshBytes(uint256, string calldata) external returns (bytes memory);
     // Returns a symbolic address
     function freshAddress() external view returns (address);
+    // Returns a symbolic address with specified K variable name.
+    function freshAddress(string calldata) external returns (address);
     // Removes a branching condition from the path constraints
     function forgetBranch(uint256, ComparisonOperator, uint256) external;
 }
