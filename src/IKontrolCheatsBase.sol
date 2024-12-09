@@ -22,8 +22,6 @@ interface KontrolCheatsBase {
     function symbolicStorage(address) external;
     // Makes the storage of the given address completely symbolic with specified K variable name.
     function symbolicStorage(address, string calldata) external;
-    // Makes the storage of the given address completely symbolic with specified K variable name.
-    function setArbitraryStorage(address, string calldata) external;
     // Adds an address to the whitelist.
     function allowCallsToAddress(address) external;
     // Adds an address and a storage slot to the whitelist.
