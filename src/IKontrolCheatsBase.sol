@@ -33,19 +33,19 @@ interface KontrolCheatsBase {
     // Returns a symbolic unsigned integer
     function freshUInt(uint8) external view returns (uint256);
     // Returns a symbolic unsigned integer with specified K variable name.
-    function freshUInt(uint8, string calldata) external returns (uint256);
+    function freshUInt(uint8, string calldata) external view returns (uint256);
     // Returns a symbolic boolean value
     function freshBool() external view returns (bool);
     // Returns a symbolic boolean value with specified K variable name.
-    function freshBool(string calldata) external returns (bool);
+    function freshBool(string calldata) external view returns (bool);
     // Returns a symbolic byte array
     function freshBytes(uint256) external view returns (bytes memory);
     // Returns a symbolic byte array with specified K variable name.
-    function freshBytes(uint256, string calldata) external returns (bytes memory);
+    function freshBytes(uint256, string calldata) external view returns (bytes memory);
     // Returns a symbolic address
     function freshAddress() external view returns (address);
     // Returns a symbolic address with specified K variable name.
-    function freshAddress(string calldata) external returns (address);
+    function freshAddress(string calldata) external view returns (address);
     // Removes a branching condition from the path constraints
     function forgetBranch(uint256, ComparisonOperator, uint256) external;
 }
