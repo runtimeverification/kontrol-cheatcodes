@@ -25,7 +25,7 @@ interface KontrolCheatsBase {
     // Adds an address to the whitelist.
     function allowCallsToAddress(address) external;
     // Adds an address and calldata to the whitelist.
-    function allowCalls(address, bytes memory) external;
+    function allowCalls(address, bytes calldata) external;
     // Adds an address and a storage slot to the whitelist.
     function allowChangesToStorage(address,uint256) external;
     // Sets the remaining gas to an infinite value.
